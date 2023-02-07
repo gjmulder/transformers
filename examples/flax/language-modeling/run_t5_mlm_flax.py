@@ -99,6 +99,10 @@ class TrainingArguments:
     logging_steps: int = field(default=500, metadata={"help": "Log every X updates steps."})
     save_steps: int = field(default=500, metadata={"help": "Save checkpoint every X updates steps."})
     eval_steps: int = field(default=None, metadata={"help": "Run an evaluation every X steps."})
+    
+    gradient_accumulation_steps: int = field(default=1, metadata={"help": "Gradient accumulation steps."})
+    gradient_checkpointing: bool = field(default=False, metadata={"help": "Gradient checkpointing."})
+    
     seed: int = field(default=42, metadata={"help": "Random seed that will be set at the beginning of training."})
     push_to_hub: bool = field(
         default=False, metadata={"help": "Whether or not to upload the trained model to the model hub after training."}
